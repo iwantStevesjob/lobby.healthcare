@@ -151,16 +151,14 @@
             In the healthcare industry, over $700 million is spent annually on lobbying, with top firms like Pharmaceutical Research and Manufacturers of America (PhRMA) and American Medical Association (AMA) leading the charge. Major companies, including Pfizer, Johnson & Johnson, and UnitedHealth Group, heavily invest in influencing policy to benefit their interests. These lobbying efforts shape healthcare legislation, often resulting in higher drug prices and insurance costs for the public, while ensuring profitable outcomes for the industry players. 
           
         </div>
-topppy
+topppyiiii
  
     <div id="clients">
         <!-- Top spenders will be displayed here -->
     </div>
 
     <script>
-        
-
-const API_KEY = '31556c14c1a9424a7785c12b2015f4eab5ec367d'; // Your API key
+        const API_KEY = '31556c14c1a9424a7785c12b2015f4eab5ec367d'; // Your API key
         const API_URL = 'https://lda.senate.gov/api/v1/filings/';
 
         function addDebugMessage(message) {
@@ -185,14 +183,10 @@ const API_KEY = '31556c14c1a9424a7785c12b2015f4eab5ec367d'; // Your API key
                 const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
                 const formattedDate = oneYearAgo.toISOString().split('T')[0]; // Format: YYYY-MM-DD
 
-                const fullUrl = `${API_URL}?filing_date__gte=${formattedDate}&ordering=-amount&limit=${limit}`;
+                const fullUrl = `${API_URL}?api_key=${API_KEY}&filing_date__gte=${formattedDate}&ordering=-amount&limit=${limit}`;
                 addDebugMessage(`Fetching from URL: ${fullUrl}`);
 
-                const response = await fetch(fullUrl, {
-                    headers: {
-                        'Authorization': `Token ${API_KEY}`
-                    }
-                });
+                const response = await fetch(fullUrl);
                 addDebugMessage(`Response status: ${response.status}`);
                 
                 if (!response.ok) {
